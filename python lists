@@ -1,0 +1,79 @@
+# Question no 1
+create a python list, add multiple values and remove the duplicate values from the list. and print the final list. do not use any python builtin functions.
+def add_value(my_list, value):
+    # Add a value to the list
+    my_list.append(value)
+
+def remove_duplicates(my_list):
+    # Remove duplicates from the list
+    unique_list = []
+    for item in my_list:
+        if item not in unique_list:
+            unique_list.append(item)
+    return unique_list
+
+def print_list(my_list):
+    # Print the final list
+    print("Final List:", my_list)
+
+# Create an empty list
+my_list = []
+# Add multiple values to the list
+add_value(my_list, 5)
+add_value(my_list, 10)
+add_value(my_list, 15)
+add_value(my_list, 5)  # Duplicate
+add_value(my_list, 20)
+add_value(my_list, 15)  # Duplicate
+
+# Remove duplicates from the list
+my_list = remove_duplicates(my_list)
+
+# Print the final list
+print_list(my_list)
+
+# Question no 2
+create 2 nested lists and calculate the matrix addition.
+def matrix_addition(matrix1, matrix2):
+    # Check if the matrices have the same dimensions
+    if len(matrix1) != len(matrix2) or len(matrix1[0]) != len(matrix2[0]):
+        raise ValueError("Matrices must have the same dimensions for addition")
+
+    # Initialize an empty result matrix with the same dimensions
+    result_matrix = [[0 for _ in range(len(matrix1[0]))] for _ in range(len(matrix1))]
+
+    # Perform matrix addition
+    for i in range(len(matrix1)):
+        for j in range(len(matrix1[0])):
+            result_matrix[i][j] = matrix1[i][j] + matrix2[i][j]
+
+    return result_matrix
+
+# Create two matrices (nested lists)
+matrix_a = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+matrix_b = [
+    [9, 8, 7],
+    [6, 5, 4],
+    [3, 2, 1]
+]
+
+# Perform matrix addition
+result_matrix = matrix_addition(matrix_a, matrix_b)
+
+# Print the matrices and the result
+print("Matrix A:")
+for row in matrix_a:
+    print(row)
+
+print("\nMatrix B:")
+for row in matrix_b:
+    print(row)
+
+print("\nMatrix Addition Result:")
+for row in result_matrix:
+    print(row)
